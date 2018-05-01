@@ -1,0 +1,6 @@
+<div class="col container">
+  	<% @suppliers.each do |supplier| %>
+   	    <%= supplier.sname %>
+       	<%= link_to "Edit", edit_supplier_path(supplier), class: "btn btn-primary" %><br>
+    <% end %>
+</div>

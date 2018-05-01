@@ -1,0 +1,69 @@
+<%= form_for @product do |f| %>
+    <div class="productContainer">
+    <div class="row container">
+        <h1><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit Product</h1>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Product Name: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :pname, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Pice: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :price, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Unit of measurement: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :unit, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Reorder Threshold: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :reorder, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Warehouse Location: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :loc, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Current Quantity: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :currquantity, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-1">
+            <h4>Status: </h4>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :status, class: "input" %>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col-md-2 col-md-offset-1">
+            <%= f.submit "Submit", class: "btn btn-prmry" %>
+        </div>
+    </div>
+</div>
+
+<% end %>

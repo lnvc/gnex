@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cname: MyString
+  caddress: MyString
+  ccontactn: MyString
+  ccontactp: MyString
+  cpayment: MyString
+  cnotes: MyString
+
+two:
+  cname: MyString
+  caddress: MyString
+  ccontactn: MyString
+  ccontactp: MyString
+  cpayment: MyString
+  cnotes: MyString

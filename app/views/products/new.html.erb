@@ -1,0 +1,30 @@
+<h1>Add Product</h1>
+<%= form_for @product do |f| %>
+    <p>
+        <%= f.label :supplier %><br>
+        <%= collection_select(:product, :supplier_id, Supplier.all, :supplier_id, :sname) %>
+    </p>
+    <p>
+        <%= f.label :pname %><br>
+        <%= f.text_field :pname %>
+    </p>
+    <p>
+        <%= f.label :price %><br>
+        <%= f.text_field :price %>
+    </p>
+    <p>
+        <%= f.label :unit %><br>
+        <%= f.text_field :unit %>
+    </p>
+    <p>
+        <%= f.label :reorder %><br>
+        <%= f.text_field :reorder %>
+    </p>
+    <p>
+        <%= f.label :loc %><br>
+        <%= f.text_field :loc %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

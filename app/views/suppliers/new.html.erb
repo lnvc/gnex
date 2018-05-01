@@ -1,0 +1,30 @@
+<h1>Add Supplier</h1>
+<%= form_for @supplier do |f| %>
+    <p>
+        <%= f.label :sname %><br>
+        <%= f.text_field :sname %>
+    </p>
+    <p>
+        <%= f.label :saddress %><br>
+        <%= f.text_field :saddress %>
+    </p>
+    <p>
+        <%= f.label :scontactn %><br>
+        <%= f.text_field :scontactn %>
+    </p>
+    <p>
+        <%= f.label :scontactp %><br>
+        <%= f.text_field :scontactp %>
+    </p>
+    <p>
+        <%= f.label :spayment %><br>
+        <%= f.text_field :spayment %>
+    </p>
+    <p>
+        <%= f.label :snotes %><br>
+        <%= f.text_field :snotes %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %> 

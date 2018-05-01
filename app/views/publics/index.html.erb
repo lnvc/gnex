@@ -1,0 +1,85 @@
+<!-- <h1>Welcome to our Product System!</h1> -->
+<div class="mainContainer">
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="logIn">
+      <div class="row container">
+        <h1>Sign in as Admin</h1>
+      </div>
+      
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+      <div class="row container">
+          <div class="col-md-1">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+          </div>
+          <div class="col-md-2">
+            <%= f.text_field :email, class: "inputLogin", placeholder: "Email"%>
+          </div>
+      </div>
+      
+      <div class="row container">
+        <div class="col-md-1">
+          <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-1">
+          <%= f.password_field :password, class: "inputLogin", placeholder: "Password" %>
+        </div>
+      </div>
+      <div class="row container">
+        <div class="col-md-1" style="margin-top:10px">
+          <%= f.submit 'Sign in', class: "btn btn-prmry btn-md" %>
+        </div>
+      </div>
+      <div class="row container" style="margin-top:5px">
+        <div class="col-md-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %> 
+          <br>
+          <%= link_to "Forgot your password?", new_password_path(:user) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-md-offset-1">
+    <div class="logIn">
+      <div class="row container">
+        <h1>Sign in as Warehouse Manager</h1>
+      </div>
+        
+      <%= form_for(:manager, :url => session_path(:manager)) do |f| %>
+      <div class="row container">
+        <div class="col-md-1">
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-2">
+          <%= f.text_field :email, class: "inputLogin", placeholder: "Email"%>
+        </div>
+      </div>
+      <div class="row container">
+        <div class="col-md-1">
+          <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-1">
+          <%= f.password_field :password, class: "inputLogin", placeholder: "Password" %>
+        </div>
+      </div>
+      <div class="row container">
+        <div class="col-md-1" style="margin-top:10px">
+          <%= f.submit 'Sign in', class: "btn btn-prmry btn-md" %>
+        </div>
+      </div>
+      <div class="row container" style="margin-top:10px">
+        <div class="col-md-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %> 
+          <br>
+          <%= link_to "Forgot your password?", new_password_path(:manager) %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

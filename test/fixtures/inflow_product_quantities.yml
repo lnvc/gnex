@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inflow: one
+  product: one
+  iquantity: 1
+
+two:
+  inflow: two
+  product: two
+  iquantity: 1
