@@ -1,0 +1,21 @@
+I">(function() {
+  $(function() {
+    return $(document).on('change', '#supplier_select', function(evt) {
+      return $.ajax('inflows/new', {
+        type: 'GET',
+        dataType: 'script',
+        data: {
+          country_id: $("#supplier_select option:selected").val()
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          return console.log("AJAX Error: " + textStatus);
+        },
+        success: function(data, textStatus, jqXHR) {
+          return console.log("Dynamic supplier select OK!");
+        }
+      });
+    });
+  });
+
+}).call(this);
+:ET

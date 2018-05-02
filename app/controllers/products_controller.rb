@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
     end
     def create
         @product = Product.new(product_params)
+        @product.currquantity = 0
+        @product.status = 'available'
         if @product.save
             redirect_to adds_index_path, notice: "Product successfully added."
         else

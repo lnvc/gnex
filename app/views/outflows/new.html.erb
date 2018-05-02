@@ -1,0 +1,22 @@
+<h1>Update Balance</h1>
+
+<%= simple_form_for @outflow do |f| %>
+   
+     <div class="hidin">
+        
+        <div class="links">
+            <%= link_to_add_association 'Add Product', f, :inflow_product_quantities, class: "btn btn-primary" %>
+        </div>
+        
+        <div id="inflow_product_quantities" class="hidden">
+            <%= f.simple_fields_for :inflow_product_quantities do |line| %>
+                <%= render 'inflow_product_quantity_fields', f: line %>
+            <% end %>
+        </div>
+        
+    </div>
+    <br>
+    <%= f.input :sreceipt %>
+    <%= f.button :submit %>
+    <%= link_to "Cancel", balances_index_path , class: "btn btn-danger" %>
+<% end %>

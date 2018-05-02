@@ -1,0 +1,20 @@
+<h1>Generate New Order</h1>
+<%= simple_form_for @order do |f| %>
+    <%= f.label :customer %>
+    <%= f.collection_select(:customer_id, Customer.all, :id, :cname) %>
+     <div class="hidin">
+        
+        <div class="links">
+            <%= link_to_add_association 'Add Product', f, :order_product_quantities, class: "btn btn-primary" %>
+        </div>
+        
+        <div id="inflow_product_quantities" class="hidden">
+            <%= f.simple_fields_for :order_product_quantities do |line| %>
+                <%= render 'order_product_quantity_fields', f: line %>
+            <% end %>
+        </div>
+        
+    </div>
+    <br>
+    <%= f.button :submit %>
+<% end %>

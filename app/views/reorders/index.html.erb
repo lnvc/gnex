@@ -1,0 +1,21 @@
+<h1>Reorder Notice List</h1>
+<div class="row container">
+   	<div class="col-md-2"><strong></string>Product</div></strong>
+   	<div class="col-md-2"><strong></string>Current Balance</div></strong>
+   	<div class="col-md-2"><strong></string>Reorder Threshold</div></strong>
+   	<div class="col-md-2"><strong></string>Supplier</div></strong>
+</div>
+<% @products.each do |product| %>
+   	<div class="col-md-2">
+   	    <%= product.pname %>
+   	</div>
+   	<div class="col-md-2">
+   	    <%= product.currquantity %>
+   	</div>
+   	<div class="col-md-2">
+   	    <%= product.reorder %>
+   	</div>
+   	<div class="col-md-2">
+   	    <%= product.supplier.sname %>
+   	</div>
+<% end %>

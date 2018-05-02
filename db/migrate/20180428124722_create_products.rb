@@ -1,6 +1,7 @@
 class CreateProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :products do |t|
+      t.references :supplier, foreign_key: true
       t.string :pname
       t.string :price
       t.string :unit

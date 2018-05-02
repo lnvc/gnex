@@ -1,0 +1,2 @@
+module NewOrdersHelper
+end
