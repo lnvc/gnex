@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :customers, :only => [:show]
       get 'balances/index'
       resources :inflows
+      resources :outflows
       # get 'inflows/new'
       # get 'inflows/index'
       # get 'inflows/show'

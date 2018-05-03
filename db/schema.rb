@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_03_173525) do
+ActiveRecord::Schema.define(version: 2018_05_03_193145) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "cname"
@@ -67,13 +67,23 @@ ActiveRecord::Schema.define(version: 2018_05_03_173525) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "total"
-    t.boolean "status"
-    t.bigint "customer_id"
+    t.integer "total", default: 0, null: false
+    t.boolean "status", null: false
+    t.bigint "customer_id", null: false
+    t.date "created_at", null: false
+    t.date "updated_at", null: false
+    t.string "receipt", limit: 50, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "outflow_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "outflow_id"
+    t.bigint "product_id"
+    t.integer "oquantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "receipt"
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["outflow_id"], name: "index_outflow_product_quantities_on_outflow_id"
+    t.index ["product_id"], name: "index_outflow_product_quantities_on_product_id"
   end
 
   create_table "outflows", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -81,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_05_03_173525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_id"
+    t.string "receipt"
     t.index ["customer_id"], name: "index_outflows_on_customer_id"
   end
 
@@ -165,6 +176,8 @@ ActiveRecord::Schema.define(version: 2018_05_03_173525) do
   add_foreign_key "order_product_quantities", "orders"
   add_foreign_key "order_product_quantities", "products"
   add_foreign_key "orders", "customers"
+  add_foreign_key "outflow_product_quantities", "outflows"
+  add_foreign_key "outflow_product_quantities", "products"
   add_foreign_key "outflows", "customers"
   add_foreign_key "products", "suppliers", primary_key: "supplier_id", name: "products_ibfk_1"
 end

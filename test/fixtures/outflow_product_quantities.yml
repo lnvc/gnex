@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  outflow: one
+  product: one
+  oquantity: 1
+
+two:
+  outflow: two
+  product: two
+  oquantity: 1

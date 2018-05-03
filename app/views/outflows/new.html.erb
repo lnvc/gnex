@@ -1,22 +1,25 @@
 <h1>Update Balance</h1>
 
 <%= simple_form_for @outflow do |f| %>
-   
      <div class="hidin">
-        
+         <%= f.label 'Customer' %>
+         <%= f.collection_select(:customer_id, Customer.all, :id, :cname) %>
         <div class="links">
-            <%= link_to_add_association 'Add Product', f, :inflow_product_quantities, class: "btn btn-primary" %>
+            <%= link_to_add_association 'Add Product', f, :outflow_product_quantities, class: "btn btn-primary" %>
         </div>
         
         <div id="inflow_product_quantities" class="hidden">
-            <%= f.simple_fields_for :inflow_product_quantities do |line| %>
-                <%= render 'inflow_product_quantity_fields', f: line %>
+            <%= f.simple_fields_for :outflow_product_quantities do |line| %>
+                <%= render 'outflow_product_quantity_fields', f: line %>
             <% end %>
         </div>
         
     </div>
     <br>
-    <%= f.input :sreceipt %>
+    <%= f.label 'Order Receipt' %>
+    <%= f.number_field :receipt, required: true %><br>
+    <%= f.label 'Customer Receipt' %>
+    <%= f.file_field :creceipt, multiple: true, accept:'image/*', required: true %>
     <%= f.button :submit %>
     <%= link_to "Cancel", balances_index_path , class: "btn btn-danger" %>
 <% end %>

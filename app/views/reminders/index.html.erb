@@ -4,6 +4,7 @@
    	<div class="col-md-2"><strong></string>Customer</div></strong>
    	<div class="col-md-2"><strong></string>Product</div></strong>
    	<div class="col-md-2"><strong></string>Quantity</div></strong>
+   	<div class="col-md-2"><strong></string>Receipt</div></strong>
 </div>
 <% @orders.each do |order| %>
     <% if order.status == true %>
@@ -11,6 +12,7 @@
           <div class="col-md-2"><%= order.customer.cname %></div>
           <div class="col-md-2"><%= line.product.pname %></div>
           <div class="col-md-2"><%= line.oquantity %></div>
+          <div class="col-md-2"><%= order.receipt %></div>
         <% end %>
     <% end %>
 <% end %>
