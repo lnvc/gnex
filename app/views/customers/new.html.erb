@@ -1,28 +1,28 @@
 <h1>Add Customer</h1>
 <%= form_for @customer do |f| %>
     <p>
-        <%= f.label :cname %><br>
-        <%= f.text_field :cname %>
+        <%= f.label :cname, 'Name' %><br>
+        <%= f.text_field :cname, required: true %>
     </p>
     <p>
-        <%= f.label :caddress %><br>
-        <%= f.text_field :caddress %>
+        <%= f.label :caddress, 'Address' %><br>
+        <%= f.text_field :caddress, required: true %>
     </p>
     <p>
-        <%= f.label :ccontactn %><br>
-        <%= f.text_field :ccontactn %>
+        <%= f.label :ccontactn, 'Contact Number' %><br>
+        <%= f.number_field :ccontactn, required: true %>
     </p>
     <p>
-        <%= f.label :ccontactp %><br>
-        <%= f.text_field :ccontactp %>
+        <%= f.label :ccontactp, 'Contact Person' %><br>
+        <%= f.text_field :ccontactp, required: true %>
     </p>
     <p>
-        <%= f.label :cpayment %><br>
-        <%= f.text_field :cpayment %>
+        <%= f.label :cpayment, 'Payment Terms' %><br>
+        <%= f.select :cpayment, ['60 days to pay', '90 days to pay', 'COD'], required: true %>
     </p>
     <p>
-        <%= f.label :cnotes %><br>
-        <%= f.text_field :cnotes %>
+        <%= f.label :cnotes,'Notes' %><br>
+        <%= f.text_field :cnotes, required: false %>
     </p>
     <p>
         <%= f.submit %>

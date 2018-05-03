@@ -1,28 +1,28 @@
 <h1>Add Supplier</h1>
 <%= form_for @supplier do |f| %>
     <p>
-        <%= f.label :sname %><br>
-        <%= f.text_field :sname %>
+        <%= f.label :sname, 'Name' %><br>
+        <%= f.text_field :sname, required: true %>
     </p>
     <p>
-        <%= f.label :saddress %><br>
-        <%= f.text_field :saddress %>
+        <%= f.label :saddress, 'Address'%><br>
+        <%= f.text_field :saddress, required: true%>
     </p>
     <p>
-        <%= f.label :scontactn %><br>
-        <%= f.text_field :scontactn %>
+        <%= f.label :scontactn, 'Contact Number' %><br>
+        <%= f.number_field :scontactn, required: true %>
     </p>
     <p>
-        <%= f.label :scontactp %><br>
-        <%= f.text_field :scontactp %>
+        <%= f.label :scontactp, 'Contact Person' %><br>
+        <%= f.text_field :scontactp, required: true %>
     </p>
     <p>
-        <%= f.label :spayment %><br>
-        <%= f.text_field :spayment %>
+        <%= f.label :spayment, 'Payment Terms' %><br>
+        <%= f.select :spayment, ['60 days to pay', '90 days to pay', 'COD'],required: true %>
     </p>
     <p>
-        <%= f.label :snotes %><br>
-        <%= f.text_field :snotes %>
+        <%= f.label :snotes, 'Notes' %><br>
+        <%= f.text_field :snotes, required: false %>
     </p>
     <p>
         <%= f.submit %>

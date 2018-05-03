@@ -13,10 +13,10 @@
     </div>
     <div class="row container">
         <div class="col-md-1">
-            <h4>Pice: </h4>
+            <h4>Price: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :price, class: "input" %>
+            <%= f.number_field :price, class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -24,7 +24,7 @@
             <h4>Unit of measurement: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :unit, class: "input" %>
+            <%= f.select :unit, ['sacks', 'cts', 'bundles', 'crates', 'cans', 'pcs'], class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -32,7 +32,7 @@
             <h4>Reorder Threshold: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :reorder, class: "input" %>
+            <%= f.number_field :reorder, class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -40,7 +40,7 @@
             <h4>Warehouse Location: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :loc, class: "input" %>
+            <%= f.select :loc, ['A', 'B'],class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -62,6 +62,7 @@
     <div class="row container">
         <div class="col-md-2 col-md-offset-1">
             <%= f.submit "Submit", class: "btn btn-prmry" %>
+            <%= link_to "Back", updates_list_p_path , class: "btn btn-danger" %>
         </div>
     </div>
 </div>

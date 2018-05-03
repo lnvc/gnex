@@ -5,7 +5,7 @@
      <div class="hidin">
         
         <div class="links">
-            <%= link_to_add_association 'Add Product', f, :order_product_quantities, class: "btn btn-primary" %>
+            <%= link_to_add_association 'Add Product', f, :order_product_quantities, required: true, class: "btn btn-primary" %>
         </div>
         
         <div id="inflow_product_quantities" class="hidden">
@@ -16,5 +16,7 @@
         
     </div>
     <br>
+    <%= f.label 'Receipt' %>
+    <%= f.text_field :receipt, required: true %><br>
     <%= f.button :submit %>
 <% end %>

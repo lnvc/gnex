@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_01_224222) do
+ActiveRecord::Schema.define(version: 2018_05_03_173525) do
 
-  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "cname"
     t.string "caddress"
     t.string "ccontactn"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inflow_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "inflow_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "inflow_id"
     t.bigint "product_id"
     t.integer "iquantity"
@@ -33,13 +33,13 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["product_id"], name: "index_inflow_product_quantities_on_product_id"
   end
 
-  create_table "inflows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "inflows", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "sreceipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "managers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "managers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
 
-  create_table "order_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "product_id"
     t.integer "oquantity"
@@ -66,16 +66,17 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["product_id"], name: "index_order_product_quantities_on_product_id"
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "total"
     t.boolean "status"
     t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "receipt"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  create_table "outflows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "outflows", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "creceipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["customer_id"], name: "index_outflows_on_customer_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "supplier_id", null: false
     t.string "pname"
     t.string "price"
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["supplier_id"], name: "supplier_id"
   end
 
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -114,7 +115,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["reset_password_token"], name: "index_purchases_on_reset_password_token", unique: true
   end
 
-  create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -131,7 +132,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.index ["reset_password_token"], name: "index_sales_on_reset_password_token", unique: true
   end
 
-  create_table "suppliers", primary_key: "supplier_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "suppliers", primary_key: "supplier_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.text "sname"
     t.text "saddress"
     t.text "scontactn"
@@ -142,7 +143,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -165,4 +166,5 @@ ActiveRecord::Schema.define(version: 2018_05_01_224222) do
   add_foreign_key "order_product_quantities", "products"
   add_foreign_key "orders", "customers"
   add_foreign_key "outflows", "customers"
+  add_foreign_key "products", "suppliers", primary_key: "supplier_id", name: "products_ibfk_1"
 end

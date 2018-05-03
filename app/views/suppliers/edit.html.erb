@@ -24,7 +24,7 @@
             <h4>Supplier Contact Number: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :scontactn, class: "input" %>
+            <%= f.number_field :scontactn, class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -40,7 +40,7 @@
             <h4>Payment: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :spayment, class: "input" %>
+            <%= f.select :spayment, ['60 days to pay', '90 days to pay', 'COD'],class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -54,6 +54,7 @@
     <div class="row container">
         <div class="col-md-2 col-md-offset-1">
             <%= f.submit "Submit", class: "btn btn-prmry" %>
+            <%= link_to "Back", updates_list_s_path , class: "btn btn-danger" %>
         </div>
     </div>
 </div>

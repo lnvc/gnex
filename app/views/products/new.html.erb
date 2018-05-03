@@ -5,24 +5,24 @@
         <%= collection_select(:product, :supplier_id, Supplier.all, :supplier_id, :sname) %>
     </p>
     <p>
-        <%= f.label :pname %><br>
-        <%= f.text_field :pname %>
+        <%= f.label :pname, 'Name', required: true %><br>
+        <%= f.text_field :pname, required: true %>
     </p>
     <p>
-        <%= f.label :price %><br>
-        <%= f.text_field :price %>
+        <%= f.label :price, 'Price' %><br>
+        <%= f.number_field :price, required: true %>
     </p>
     <p>
-        <%= f.label :unit %><br>
-        <%= f.text_field :unit %>
+        <%= f.label :unit, 'Unit of Measurement' %><br>
+        <%= f.select :unit, ['sacks', 'cts', 'bundles', 'crates', 'cans', 'pcs'], required: true %>
     </p>
     <p>
-        <%= f.label :reorder %><br>
-        <%= f.text_field :reorder %>
+        <%= f.label :reorder, 'Reorder Point' %><br>
+        <%= f.number_field :reorder, required: true %>
     </p>
     <p>
-        <%= f.label :loc %><br>
-        <%= f.text_field :loc %>
+        <%= f.label :loc, 'Warehouse Location' %><br>
+        <%= f.select :loc, ['A', 'B'], required: true %>
     </p>
     <p>
         <%= f.submit %>

@@ -1,6 +1,6 @@
 <h1>Update Balance</h1>
 
-<%= simple_form_for @inflow do |f| %>
+<%= simple_form_for @inflow, html: { multipart: true } do |f| %>
    
      <div class="hidin">
         
@@ -13,10 +13,10 @@
                 <%= render 'inflow_product_quantity_fields', f: line %>
             <% end %>
         </div>
-        
     </div>
     <br>
-    <%= f.input :sreceipt %>
+    <%= f.label 'Receipt' %>
+    <%= f.file_field :sreceipt, multiple: true, accept:'image/*' %>
     <%= f.button :submit %>
     <%= link_to "Cancel", balances_index_path , class: "btn btn-danger" %>
 <% end %>
