@@ -20,3 +20,22 @@
     <%= f.text_field :receipt, required: true %><br>
     <%= f.button :submit %>
 <% end %>
+
+<% @orders.each do |order| %>
+    <% if order.status == true || order.total > 0 %>
+        <% order.order_product_quantities.each do |prod| %>
+            <% if prod.oquantity <= prod.product.currquantity %>
+                <% order.status = false %>
+            <% else %>
+                <% order.status = true %>
+                <% break %>
+            <% end %>
+            <% order.save %>
+        <% end %>
+        <% if order.status == false %>
+            <%= '*Incomplete order ' %>
+            <%= order.receipt %>
+            <%= ' can now be fulfilled.' %> <br>
+        <% end %> 
+    <% end %>
+<% end %>

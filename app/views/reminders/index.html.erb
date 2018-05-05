@@ -1,18 +1,18 @@
 <!--loop through orders, find with status = 1, find orderlines with oquantity > 0, display-->
 <h1>Order Availability Reminder</h1>
 <div class="row container">
+   	<div class="col-md-2"><strong></string>Receipt</div></strong>
    	<div class="col-md-2"><strong></string>Customer</div></strong>
    	<div class="col-md-2"><strong></string>Product</div></strong>
    	<div class="col-md-2"><strong></string>Quantity</div></strong>
-   	<div class="col-md-2"><strong></string>Receipt</div></strong>
 </div>
 <% @orders.each do |order| %>
-    <% if order.status == true %>
-        <% order.order_product_quantities.where("oquantity > 0").each do |line| %>
+    <% if order.total > 0 %>
+        <% order.order_product_quantities.each do |line| %>
+            <div class="col-md-2"><%= order.receipt %></div>
           <div class="col-md-2"><%= order.customer.cname %></div>
           <div class="col-md-2"><%= line.product.pname %></div>
-          <div class="col-md-2"><%= line.oquantity %></div>
-          <div class="col-md-2"><%= order.receipt %></div>
+          <div class="col-md-2"><%= line.oquantity %></div><br>
         <% end %>
     <% end %>
 <% end %>

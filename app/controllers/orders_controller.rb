@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
   def new
     @order = Order.new
+    @orders = Order.all
+    @flag = 0
   end
   def create
     @order = Order.new(order_params)
 
     # initialize
     @order.total = 0
-    @order.status = 0
+    @order.status = false
     # check each line's product's quantity
     @order_line = @order.order_product_quantities
     
@@ -15,19 +17,23 @@ class OrdersController < ApplicationController
     if !@order_line.empty?
       @order_line.each do |product| 
         # add each to total
-        @order.total += product.oquantity
+        # @order.total += product.oquantity
         # check if product.currquantity - quan < 0, if < 0 , incomplete orders list
         @product = Product.find_by(id: product.product_id)
         if @product.currquantity - product.oquantity < 0
-          # 0 = complete, 1 = incomplete
-          @order.status = 1 
+          # true = incomplete
+          @order.status = true
           # needed quantity to complete order
-          product.oquantity -= @product.currquantity
-          @product.currquantity = 0
-        # product.save
-        else
-          @product.currquantity -= product.oquantity
-          product.oquantity = 0
+          # product.oquantity -= @product.currquantity
+          @order.total += product.oquantity
+          # @product.currquantity = 0
+        # else
+          # @order.total += product.oquantity
+          # @product.currquantity -= product.oquantity
+          # product.oquantity = 0
+        end
+        if @order.status == true
+          break
         end
         @product.save
       end
