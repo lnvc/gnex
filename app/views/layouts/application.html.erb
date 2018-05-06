@@ -31,14 +31,14 @@
               <%= link_to 'Update Balance', balances_index_path %>
             </li>
             <li class="nav-item active">
-             <%= link_to 'Product Summary' %>
+             <%= link_to 'Product Summary', summaries_list_path %>
             </li>
           <% elsif purchase_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Reorder', reorders_index_path %>
             </li>
             <li class="nav-item active">
-             <%= link_to 'Product Summary' %>
+             <%= link_to 'Product Summary', summaries_list_path %>
             </li>
           <% elsif sale_signed_in? %>
             <li class="nav-item active">

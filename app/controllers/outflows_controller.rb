@@ -14,6 +14,7 @@ class OutflowsController < ApplicationController
     @order = Order.find_by(receipt: @outflow.receipt)
     @order.total = 0
     @order.status = false
+    @order.save
     end
     if @outflow.save
       redirect_to balances_index_path, notice: "Outflow successfully added."

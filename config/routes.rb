@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'summaries/index'
   get 'reminders/index'
   get 'orders/new'
   # get 'new_orders/index'
@@ -34,6 +35,8 @@ Rails.application.routes.draw do
       resources :suppliers, :only => [:show]
       resources :customers, :only => [:show]
       get 'balances/index'
+      get 'summaries/list'
+      get 'summaries/index'
       resources :inflows
       resources :outflows
       # get 'inflows/new'
@@ -47,6 +50,10 @@ Rails.application.routes.draw do
   devise_scope :purchase do
     authenticated :purchase do
       get 'reorders/index'
+      get 'summaries/list'
+      get 'summaries/index'
+      resources :inflows, :only => [:show]
+      resources :outflows, :only => [:show]
       resources :products
       resources :suppliers, :only => [:show]
       root 'reorders#index', as: :authenticated_purchase_root

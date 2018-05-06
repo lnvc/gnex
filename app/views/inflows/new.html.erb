@@ -16,7 +16,7 @@
     </div>
     <br>
     <%= f.label 'Receipt' %>
-    <%= f.file_field :sreceipt, multiple: true, accept:'image/*' %>
+    <%= f.file_field :sreceipt, multiple: true, accept:'image/*', required: true %>
     <%= f.button :submit %>
     <%= link_to "Cancel", balances_index_path , class: "btn btn-danger" %>
 <% end %>

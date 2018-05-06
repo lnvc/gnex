@@ -1,0 +1,7 @@
+<div class="col container">
+    <% Product.all.each do |product| %>
+        <%= product.pname %>
+        <%= product.loc %>
+        <%= link_to "Select", { :controller => "summaries", :action => "index", :id => product.id }, class: "btn btn-primary" %><br>
+    <% end %>
+</div>
