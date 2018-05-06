@@ -8,6 +8,10 @@
         <%= f.number_field :iquantity, required: true %>
     </div>
     <div class="col-md-2">
+        <%= f.label 'Cost' %>
+        <%= f.number_field :cost, required: true %>
+    </div>
+    <div class="col-md-2">
         <%= link_to_remove_association "Remove product", f, class: "btn btn-danger remove" %>
     </div>
     </div>

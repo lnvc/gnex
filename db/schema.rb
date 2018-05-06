@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_03_193145) do
+ActiveRecord::Schema.define(version: 2018_05_06_210038) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "cname"
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(version: 2018_05_03_193145) do
     t.integer "iquantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cost"
     t.index ["inflow_id"], name: "index_inflow_product_quantities_on_inflow_id"
     t.index ["product_id"], name: "index_inflow_product_quantities_on_product_id"
   end
 
   create_table "inflows", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "sreceipt"
+    t.binary "sreceipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_05_03_193145) do
   end
 
   create_table "outflows", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "creceipt"
+    t.binary "creceipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_id"

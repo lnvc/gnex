@@ -19,6 +19,7 @@ class SummariesController < ApplicationController
         if line.product_id == @product.id
           @products << line.created_at.strftime("%B %d, %Y")
           @products << line.iquantity
+          @products << line.cost
         end
       end
     end
@@ -27,6 +28,7 @@ class SummariesController < ApplicationController
       outflow.outflow_product_quantities.each do |line|
         if line.product_id == @product.id
           @products_o << line.created_at.strftime("%B %d, %Y")
+          @products_o << outflow.receipt
           @products_o << line.oquantity
         end
       end

@@ -7,7 +7,7 @@
 <% @products.each do |product| %>
     <% @count+= 1 %>
     <div class="col-md-2"><%= product %></div>
-    <% if @count % 2 == 0 %>
+    <% if @count % 3 == 0 %>
         <br>
     <% end %>
 <% end %>
