@@ -5,7 +5,8 @@ remove all entries in database:
 2. rake db:create:all
 3. rake db:migrate
 4. mysql -u root -p
-5. mysql statements:
+5. use sad_gnex_commercial_development;
+6. mysql statements:
 show create table products; ***
 ALTER TABLE products DROP FOREIGN KEY <CONSTRAINT NAME FROM *** >;
 ALTER TABLE products DROP KEY <KEY NAME FROM *** >;
