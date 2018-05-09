@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'summaries/index'
-  get 'reminders/index'
-  get 'orders/new'
+  # get 'summaries/index'
+  # get 'reminders/index'
+  # get 'orders/new'
   # get 'new_orders/index'
   # get 'reorders/index'
   # get 'balances/index'
@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   devise_scope :sale do
     authenticated :sale do
       resources :orders
+      get 'orders/new'
       get 'reminders/index'
       root 'orders#new', as: :authenticated_sale_root
     end

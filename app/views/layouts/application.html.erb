@@ -51,19 +51,19 @@
         </ul>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
+            Logged in as Admin: <strong><%= current_user.email %></strong>.
             <% link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif manager_signed_in? %>
-            Logged in as <strong><%= current_manager.email %></strong>.
+            Logged in as Warehouse Manager: <strong><%= current_manager.email %></strong>.
             <% link_to 'Edit profile', edit_manager_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_manager_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif purchase_signed_in? %>
-            Logged in as <strong><%= current_purchase.email %></strong>.
+            Logged in as Purchasing User: <strong><%= current_purchase.email %></strong>.
             <% link_to 'Edit profile', edit_purchase_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_purchase_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif sale_signed_in? %>
-            Logged in as <strong><%= current_sale.email %></strong>.
+            Logged in as Sales User: <strong><%= current_sale.email %></strong>.
             <% link_to 'Edit profile', edit_sale_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_sale_session_path, method: :delete, :class => 'navbar-link'  %>
           <% end %>

@@ -1,5 +1,6 @@
 <h1>Product Summary</h1>
-<div class="col-md-5"><h4>Received</h4></div><h4>On Hand</h4><br>
+<h2>Product: <%= @product.pname %> from Warehouse <%= @product.loc %></h2>
+<h4>Received</h4><br>
 <div class="col-md-2">Date</div>
 <div class="col-md-2">Quantity</div>
 <div class="col-md-2">Cost</div><br>
@@ -15,12 +16,13 @@
 <h4>Sold</h4><br>
 <div class="col-md-2">Date</div>
 <div class="col-md-2">Invoice #</div>
-<div class="col-md-2">Quantity</div><br>
+<div class="col-md-2">Quantity</div>
+<div class="col-md-2">Customer</div><br>
 <% @count = 0 %>
 <% @products_o.each do |product| %>
     <% @count+= 1 %>
     <div class="col-md-2"><%= product %></div>
-    <% if @count % 3 == 0 %>
+    <% if @count % 4 == 0 %>
         <br>
     <% end %>
 <% end %>
