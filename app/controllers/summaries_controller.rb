@@ -20,6 +20,7 @@ class SummariesController < ApplicationController
           @products << line.created_at.strftime("%B %d, %Y")
           @products << line.iquantity
           @products << line.cost
+          @products << line.cost * 1.20
         end
       end
     end

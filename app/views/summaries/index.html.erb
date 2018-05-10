@@ -3,12 +3,13 @@
 <h4>Received</h4><br>
 <div class="col-md-2">Date</div>
 <div class="col-md-2">Quantity</div>
-<div class="col-md-2">Cost</div><br>
+<div class="col-md-2">Cost</div>
+<div class="col-md-2">Price</div><br>
 <% @count = 0 %>
 <% @products.each do |product| %>
     <% @count+= 1 %>
     <div class="col-md-2"><%= product %></div>
-    <% if @count % 3 == 0 %>
+    <% if @count % 4 == 0 %>
         <br>
     <% end %>
 <% end %>

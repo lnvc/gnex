@@ -32,10 +32,10 @@ class OrdersController < ApplicationController
           # @product.currquantity -= product.oquantity
           # product.oquantity = 0
         end
+        @product.save
         if @order.status == true
           break
         end
-        @product.save
       end
       
       if @order.save

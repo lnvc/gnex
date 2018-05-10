@@ -65,6 +65,8 @@ Rails.application.routes.draw do
       resources :orders
       get 'orders/new'
       get 'reminders/index'
+      get 'summaries/list'
+      get 'summaries/index'
       root 'orders#new', as: :authenticated_sale_root
     end
   end
