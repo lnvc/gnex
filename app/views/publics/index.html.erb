@@ -1,13 +1,10 @@
 <!-- <h1>Welcome to our Product System!</h1> -->
 
 
-
-
 <div class="mainContainer">
 
-
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="logIn">
       <div class="row container">
         <h1>Sign in as Admin</h1>
@@ -48,9 +45,9 @@
     </div>
   </div>
 
+ 
 
-
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="logIn">
       <div class="row container">
         <h1>Sign in as Warehouse Manager</h1>
@@ -90,12 +87,12 @@
     </div>
   </div>
   
-  <br>
+
   
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="logIn">
       <div class="row container">
-        <h1>Sign in as Purchasing Department</h1>
+        <h1>Sign in as Purchasing </h1>
       </div>
         
       <%= form_for(:purchase, :url => session_path(:purchase)) do |f| %>
@@ -132,12 +129,12 @@
     </div>
   </div>
   
-  <br>
-  
-  <div class="col-md-4 ">
+
+ 
+  <div class="col-md-5">
     <div class="logIn">
       <div class="row container">
-        <h1>Sign in as Sales Department</h1>
+        <h1>Sign in as Sales </h1>
       </div>
         
       <%= form_for(:sale, :url => session_path(:sale)) do |f| %>

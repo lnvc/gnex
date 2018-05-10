@@ -1,0 +1,8 @@
+<h1>Managers</h1>
+<%= link_to "Add", new_manager_path %><br>
+<div class="col-md-4"><strong></string>User</div></strong><br>
+<% Manager.all.each do |manager| %>
+    <div class="col-md-4"><%= manager.email %></div>
+    <div class="col-md-4"><%= link_to "Edit", edit_manager_path(manager) %></div>
+    <div class="col-md-4"><%= button_to "Delete", manager, method: :delete %></div><br>
+<% end %>

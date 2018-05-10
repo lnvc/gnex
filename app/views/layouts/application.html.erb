@@ -8,13 +8,27 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <style>
+      h7{
+        color:white;
+        font-size:20px;
+        }
+      body{
+        background-color:#c9c9c9;
+      }
+      html
+      {
+        font-family:Arial;
+      }
+
+    </style>
  
   </head>
 
   <body>
  
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">G-NEX</a>
+      <a class="navbar-brand" href="/" style ="font-size:50px;">G-NEX</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +36,7 @@
       
       
   
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault" style ="font-size:20px;">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" style ="font-size:15px;">
         
         <br>
         <br>
@@ -31,26 +45,39 @@
             <li class="nav-item active">
               <%= link_to 'Add', adds_index_path %>
             </li>
-             &nbsp   &nbsp |   &nbsp   &nbsp
+            <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+            
             <li class="nav-item active">
              <%= link_to 'Update', updates_index_path %>
             </li>
-            
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Warehouse Managers', managers_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Purchasing Users', purchases_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Sales Users', sales_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             
           <% elsif manager_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Update Balance', balances_index_path %>
             </li>
-            
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             <li class="nav-item active">
              <%= link_to 'Product Summary', summaries_list_path %>
             </li>
-            
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
           <% elsif purchase_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Reorder', reorders_index_path %>
             </li>
-            
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             <li class="nav-item active">
              <%= link_to 'Product Summary', summaries_list_path %>
             </li>
@@ -58,12 +85,15 @@
             <li class="nav-item active">
               <%= link_to 'New Order', orders_new_path %>
             </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             <li class="nav-item active">
              <%= link_to 'Order Availability', reminders_index_path %>
             </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             <li class="nav-item active">
              <%= link_to 'Product Summary', summaries_list_path %>
             </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
           <% end %>
         </ul>
        
@@ -75,19 +105,15 @@
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
             Logged in as Admin: <strong><%= current_user.email %></strong>.
-            <% link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif manager_signed_in? %>
             Logged in as Warehouse Manager: <strong><%= current_manager.email %></strong>.
-            <% link_to 'Edit profile', edit_manager_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_manager_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif purchase_signed_in? %>
             Logged in as Purchasing User: <strong><%= current_purchase.email %></strong>.
-            <% link_to 'Edit profile', edit_purchase_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_purchase_session_path, method: :delete, :class => 'navbar-link'  %>
           <% elsif sale_signed_in? %>
             Logged in as Sales User: <strong><%= current_sale.email %></strong>.
-            <% link_to 'Edit profile', edit_sale_registration_path, :class => 'navbar-link' %> 
             <%= link_to "Logout", destroy_sale_session_path, method: :delete, :class => 'navbar-link'  %>
           <% end %>
           </p>

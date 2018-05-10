@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :customers
   has_many :suppliers
   has_many :products
+  has_many :purchases 
+  has_many :sales 
+  has_many :managers
 end

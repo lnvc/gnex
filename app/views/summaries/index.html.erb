@@ -1,14 +1,23 @@
 <h1>Product Summary</h1>
 <h2>Product: <%= @product.pname %> from Warehouse <%= @product.loc %></h2>
 <h4>Received</h4><br>
-<div class="col-md-2">Date</div>
-<div class="col-md-2">Quantity</div>
-<div class="col-md-2">Cost</div>
-<div class="col-md-2">Price</div><br>
+
+
+<div class="col-md-2 " style ="text-align:center;">Date</div>
+<div class="col-md-1">|</div> 
+<div class="col-md-2"  style ="text-align:center;">Quantity</div>
+<div class="col-md-1">|</div> 
+<div class="col-md-2"  style ="text-align:center;">Cost</div>
+<div class="col-md-1">|</div> 
+<div class="col-md-2"  style ="text-align:center;">Price</div>
+<div class="col-md-1">|</div> <br>
+
+
 <% @count = 0 %>
 <% @products.each do |product| %>
     <% @count+= 1 %>
-    <div class="col-md-2"><%= product %></div>
+    <div class="col-md-2" style ="text-align:center;"><%= product %></div>
+    <div class="col-md-1">|</div> 
     <% if @count % 4 == 0 %>
         <br>
     <% end %>
@@ -22,7 +31,8 @@
 <% @count = 0 %>
 <% @products_o.each do |product| %>
     <% @count+= 1 %>
-    <div class="col-md-2"><%= product %></div>
+    <div class="col-md-2" style ="text-align:center;"><%= product %></div>
+    <div class="col-md-1">|</div> 
     <% if @count % 4 == 0 %>
         <br>
     <% end %>

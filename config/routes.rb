@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  # get 'summaries/index'
-  # get 'reminders/index'
-  # get 'orders/new'
-  # get 'new_orders/index'
-  # get 'reorders/index'
-  # get 'balances/index'
-  # get 'products/new'
-  # get 'products/edit'
-  # get 'products/show'
-  # get 'customers/edit'
-  # get 'customers/new'
-  # get 'customers/show'
-  # get 'updates/index'
-  # get 'adds/index'
   get 'publics/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root 'publics#index'
@@ -21,6 +7,9 @@ Rails.application.routes.draw do
       resources :products
       resources :suppliers
       resources :customers
+      resources :purchases
+      resources :sales
+      resources :managers
       get 'adds/index'
       get 'updates/index'
       get 'updates/list_s'

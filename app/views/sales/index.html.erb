@@ -1,0 +1,8 @@
+<h1>Sales Users</h1>
+<%= link_to "Add", new_sale_path %><br>
+<div class="col-md-4"><strong></string>User</div></strong><br>
+<% Sale.all.each do |sale| %>
+    <div class="col-md-4"><%= sale.email %></div>
+    <div class="col-md-4"><%= link_to "Edit", edit_sale_path(sale) %></div>
+    <div class="col-md-4"><%= button_to "Delete", sale, method: :delete %></div><br>
+<% end %>

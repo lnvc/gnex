@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_06_210038) do
+ActiveRecord::Schema.define(version: 2018_05_10_153208) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "cname"
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 2018_05_06_210038) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
   create_table "order_product_quantities", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -123,8 +125,10 @@ ActiveRecord::Schema.define(version: 2018_05_06_210038) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["email"], name: "index_purchases_on_email", unique: true
     t.index ["reset_password_token"], name: "index_purchases_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -140,8 +144,10 @@ ActiveRecord::Schema.define(version: 2018_05_06_210038) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["email"], name: "index_sales_on_email", unique: true
     t.index ["reset_password_token"], name: "index_sales_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
   create_table "suppliers", primary_key: "supplier_id", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -174,6 +180,7 @@ ActiveRecord::Schema.define(version: 2018_05_06_210038) do
 
   add_foreign_key "inflow_product_quantities", "inflows"
   add_foreign_key "inflow_product_quantities", "products"
+  add_foreign_key "managers", "users"
   add_foreign_key "order_product_quantities", "orders"
   add_foreign_key "order_product_quantities", "products"
   add_foreign_key "orders", "customers"
@@ -181,4 +188,6 @@ ActiveRecord::Schema.define(version: 2018_05_06_210038) do
   add_foreign_key "outflow_product_quantities", "products"
   add_foreign_key "outflows", "customers"
   add_foreign_key "products", "suppliers", primary_key: "supplier_id", name: "products_ibfk_1"
+  add_foreign_key "purchases", "users"
+  add_foreign_key "sales", "users"
 end

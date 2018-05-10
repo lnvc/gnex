@@ -1,0 +1,9 @@
+<%= form_for @sale do |f| %>
+    email:
+    <%= f.text_field :email %><br>
+    password:
+    <%= f.text_field :password %><br>
+    confirm password:
+    <%= f.text_field :password_confirmation %><br>
+    <%= f.submit "Submit", class: "btn btn-prmry" %>
+<% end %>
