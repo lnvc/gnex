@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update, :show]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
     
     def new
         @product = Product.new
@@ -22,6 +22,13 @@ class ProductsController < ApplicationController
     def update
         if @product.update(product_params)
             redirect_to updates_index_path, notice: "Product successfully updated."
+        else
+            render :edit
+        end
+    end
+    def destroy
+        if @product.delete
+           redirect_to updates_index_path, notice: "Product successfully deleted."
         else
             render :edit
         end

@@ -7,36 +7,50 @@
     <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+ 
   </head>
 
   <body>
-    
+ 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="/">G-NEX</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    
+      
+      
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault" style ="font-size:20px;">
+        
+        <br>
+        <br>
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Add', adds_index_path %>
             </li>
+             &nbsp   &nbsp |   &nbsp   &nbsp
             <li class="nav-item active">
              <%= link_to 'Update', updates_index_path %>
             </li>
+            
+            
           <% elsif manager_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Update Balance', balances_index_path %>
             </li>
+            
             <li class="nav-item active">
              <%= link_to 'Product Summary', summaries_list_path %>
             </li>
+            
           <% elsif purchase_signed_in? %>
             <li class="nav-item active">
               <%= link_to 'Reorder', reorders_index_path %>
             </li>
+            
             <li class="nav-item active">
              <%= link_to 'Product Summary', summaries_list_path %>
             </li>
@@ -52,6 +66,12 @@
             </li>
           <% end %>
         </ul>
+       
+      
+        
+        
+        <!---Used for the description of the user to the right --->
+        
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
             Logged in as Admin: <strong><%= current_user.email %></strong>.

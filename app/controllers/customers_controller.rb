@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :set_customer, only: [:edit, :update, :show]
+    before_action :set_customer, only: [:edit, :update, :show, :destroy]
     def new
         @customer = Customer.new
     end
@@ -24,6 +24,13 @@ class CustomersController < ApplicationController
         else
             render :edit
         end 
+    end
+    def destroy
+        if @customer.delete
+            redirect_to updates_index_path, notice: "Customer successfully deleted."
+        else
+            render :edit
+        end
     end
     private 
         def customer_params

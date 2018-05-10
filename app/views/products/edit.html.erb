@@ -63,6 +63,7 @@
         <div class="col-md-2 col-md-offset-1">
             <%= f.submit "Submit", class: "btn btn-prmry" %>
             <%= link_to "Back", updates_list_p_path , class: "btn btn-danger" %>
+            <%= button_to "Delete", @product, method: :delete, class: "btn btn-danger" %>
         </div>
     </div>
 </div>
