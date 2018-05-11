@@ -51,6 +51,18 @@
              <%= link_to 'Update', updates_index_path %>
             </li>
              <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Purchase Users', purchases_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Warehouse Managers', managers_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
+             <li class="nav-item active">
+             <%= link_to 'Sales Users', sales_path %>
+            </li>
+             <h7> &nbsp   &nbsp |   &nbsp   &nbsp </h7>
             
           <% elsif manager_signed_in? %>
             <li class="nav-item active">
