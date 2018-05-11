@@ -19,8 +19,8 @@ class SummariesController < ApplicationController
         if line.product_id == @product.id
           @products << line.created_at.strftime("%B %d, %Y")
           @products << line.iquantity
-          @products << line.cost
-          @products << line.cost * 1.20
+          @products << (line.cost).round(2)
+          @products << (line.cost * 1.20).round(2)
         end
       end
     end
@@ -38,6 +38,13 @@ class SummariesController < ApplicationController
     end
     # @products = Inflow.select(:inflow_product_quantities).where(:product_id => @product.id).all
     redirect_to updates_index_path, notice: "Product not found." if @product.nil? 
+    respond_to do |format|
+      format.pdf do
+        render pdf: "Product_Summary_"+"#{@product.pname}"+"_"+"#{@product.loc}",
+               template: "summaries/index.pdf.erb",
+               locals: {:product => @product}
+      end
+    end
     # @product = params[:product]
   end
   def list
