@@ -1,0 +1,17 @@
+<h1>Reorder Notice List</h1>
+<table style="width:100%">
+  <tr div align="left">
+    <th>Product</th>
+    <th>Current Balance</th> 
+    <th>Reorder Threshold</th>
+    <th>Supplier</th>
+  </tr>
+  <tr>
+    <% @products.each do |product| %>
+        <td><%= product.pname %></td>
+        <td><%= product.currquantity %></td>
+        <td><%= product.reorder %></td>
+        <td><%= product.supplier.sname %></td>
+        </tr>
+    <% end %>
+</table>

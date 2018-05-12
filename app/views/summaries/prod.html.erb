@@ -1,0 +1,43 @@
+<h1>Product Summary</h1>
+<h2>Product: <%= @product.pname %> from Warehouse <%= @product.loc %></h2>
+<h4>Received</h4>
+<table style="width:100%">
+  <tr div align="left">
+    <th>Date</th>
+    <th>Quantity</th> 
+    <th>Cost</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <% @count = 0 %>
+    <% @products.each do |product| %>
+        <% @count+= 1 %>
+        <td><%= product %></td>
+        <% if @count % 4 == 0 %>
+            </tr>
+        <% end %>
+    <% end %>
+</table>
+<br>
+
+<h4>Sold</h4>
+<table style="width:100%">
+  <tr div align="left">
+    <th>Date</th>
+    <th>Invoice</th> 
+    <th>Quantity</th>
+    <th>Customer</th>
+  </tr>
+  <tr>
+    <% @count = 0 %>
+    <% @products_o.each do |product| %>
+        <% @count+= 1 %>
+        <td><%= product %></td>
+        <% if @count % 4 == 0 %>
+            </tr>
+        <% end %>
+    <% end %>
+</table>
+
+<h2>On Hand <%= @product.currquantity %></h2>
+<%= link_to "Download", { :controller => "summaries", :action => "index", :id => @product.id, format: :pdf }, class: "btn btn-primary" %><br>
