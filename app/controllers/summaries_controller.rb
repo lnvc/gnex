@@ -88,5 +88,6 @@ class SummariesController < ApplicationController
     redirect_to updates_index_path, notice: "Product not found." if @product.nil? 
   end
   def list
+
   end
 end
