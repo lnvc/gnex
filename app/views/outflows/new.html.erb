@@ -3,7 +3,7 @@
 <%= simple_form_for @outflow do |f| %>
      <div class="hidin">
          <%= f.label 'Customer' %>
-         <%= f.collection_select(:customer_id, Customer.all, :id, :cname) %>
+         <%= f.collection_select(:customer_id, Customer.all.order('cname'), :id, :cname) %>
         <div class="links">
             <%= link_to_add_association 'Add Product', f, :outflow_product_quantities, class: "btn btn-primary" %>
         </div>

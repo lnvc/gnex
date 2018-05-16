@@ -1,7 +1,7 @@
 <div class="col container">
-    <% Product.all.each do |product| %>
-        <%= product.pname %>
-        <%= product.loc %>
-        <%= link_to "Select", { :controller => "summaries", :action => "prod", :id => product.id }, class: "btn btn-primary" %><br>
+    <% Product.order('pname').each do |product| %>
+        <div class="col-md-4"><%= product.pname %></div>
+        <div class="col-md-4"><%= product.loc %></div>
+        <div class="col-md-4"><%= link_to "Select", { :controller => "summaries", :action => "prod", :id => product.id }, class: "btn btn-primary" %></div>
     <% end %>
 </div>

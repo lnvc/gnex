@@ -40,4 +40,5 @@
 </table>
 
 <h2>On Hand <%= @product.currquantity %></h2>
-<%= link_to "Download", { :controller => "summaries", :action => "index", :id => @product.id, format: :pdf }, class: "btn btn-primary" %><br>
+<div class="col-md-2"><%= link_to "Download", { :controller => "summaries", :action => "index", :id => @product.id, format: :pdf }, class: "btn btn-primary" %></div>
+<div class="col-md-2"><%= link_to "Back", summaries_list_path , class: "btn btn-danger" %></div>

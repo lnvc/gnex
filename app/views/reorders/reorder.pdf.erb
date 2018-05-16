@@ -7,7 +7,7 @@
     <th>Supplier</th>
   </tr>
   <tr>
-    <% @products.each do |product| %>
+    <% @products.order('pname').each do |product| %>
         <td><%= product.pname %></td>
         <td><%= product.currquantity %></td>
         <td><%= product.reorder %></td>

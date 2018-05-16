@@ -1,7 +1,7 @@
 <div class="nested-fields">
     <div class="row container">
     <div class="col-md-4">
-        <%= f.association :product, :as => :collection_select, collection: Product.where('currquantity > ?', 0), :label_method => :pname, required: true, class: "productMenu" %>
+        <%= f.association :product, :as => :collection_select, collection: Product.where('currquantity > ?', 0).order('pname'), :label_method => :pname, required: true, class: "productMenu" %>
     </div>
     <div class="col-md-2">
         <%= f.label 'Quantity' %>

@@ -2,13 +2,11 @@
 <script type="text/javascript" src="path-to-file/thickbox.js"></script>
 
 
-<%= link_to "Add Product", new_product_path, class: "btn btn-info" %>
-<br>
-<br>
-
-<%= link_to "Add Supplier", new_supplier_path, class: "btn btn-info" %>
-<br>
-<br>
-<%= link_to "Add Customer", new_customer_path, class: "btn btn-info" %>
-
+<table>
+    <tr>
+        <td><div class="col-md-4"><%= link_to "Add Product", new_product_path, class: "btn btn-info" %></div></td>
+        <td><div class="col-md-4"><%= link_to "Add Supplier", new_supplier_path, class: "btn btn-info" %></div></td>
+        <td><div class="col-md-4"><%= link_to "Add Customer", new_customer_path, class: "btn btn-info" %></div></td>
+    </tr>
+</table>
 

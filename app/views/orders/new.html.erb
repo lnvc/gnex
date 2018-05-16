@@ -1,7 +1,7 @@
 <h1>Generate New Order</h1>
 <%= simple_form_for @order do |f| %>
     <%= f.label :customer %>
-    <%= f.collection_select(:customer_id, Customer.all, :id, :cname) %>
+    <%= f.collection_select(:customer_id, Customer.all.order('cname'), :id, :cname) %>
      <div class="hidin">
         
         <div class="links">

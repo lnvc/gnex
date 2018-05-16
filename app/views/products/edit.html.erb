@@ -24,7 +24,7 @@
             <h4>Unit of measurement: </h4>
         </div>
         <div class="col-md-2">
-            <%= f.select :unit, ['sacks', 'cts', 'bundles', 'crates', 'cans', 'pcs'], class: "input" %>
+            <%= f.select :unit, ['Sacks', 'Cartons', 'Bundles', 'Crates', 'Cans', 'Pieces', 'Rolls'], class: "input" %>
         </div>
     </div>
     <div class="row container">
@@ -60,10 +60,10 @@
         </div>
     </div>
     <div class="row container">
-        <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-3 col-md-offset-1">
             <%= f.submit "Submit", class: "btn btn-prmry" %>
-            <%= link_to "Back", updates_list_p_path , class: "btn btn-danger" %>
             <%= button_to "Delete", @product, method: :delete, class: "btn btn-danger" %>
+            <%= link_to "Back", updates_list_p_path , class: "btn btn-danger" %>
         </div>
     </div>
 </div>
