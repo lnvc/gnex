@@ -30,7 +30,7 @@ class SummariesController < ApplicationController
       outflow.outflow_product_quantities.each do |line|
         if line.product_id == @product.id
           @products_o << line.created_at.strftime("%B %d, %Y")
-          @products_o << outflow.receipt
+          @products_o << outflow.creceipt
           @products_o << line.oquantity
           @products_o << @customer[outflow.customer_id-1].cname
         end
@@ -78,7 +78,7 @@ class SummariesController < ApplicationController
       outflow.outflow_product_quantities.each do |line|
         if line.product_id == @product.id
           @products_o << line.created_at.strftime("%B %d, %Y")
-          @products_o << outflow.receipt
+          @products_o << outflow.creceipt
           @products_o << line.oquantity
           @products_o << @customer[outflow.customer_id-1].cname
         end

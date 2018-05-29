@@ -6,7 +6,7 @@
    	<div class="col-md-2"><strong></string>Quantity</div></strong>
 </div>
 <% @orders.order('receipt').each do |order| %>
-    <% if order.total > 0 %>
+    <% if order.status == TRUE %>
         <% order.order_product_quantities.each do |line| %>
             <div class="col-md-2"><%= order.receipt %></div>
           <div class="col-md-2"><%= order.customer.cname %></div>

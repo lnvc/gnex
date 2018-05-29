@@ -6,9 +6,9 @@ class InflowsController < ApplicationController
     @inflow = Inflow.new(inflow_params)
     
     # update each product's quantity
-    @inflow_line = @inflow.inflow_product_quantities
+    @inflow_line = @inflow.inflow_product_quantities.all
     @inflow_line.each do |product| 
-      @product = Product.find_by(id: product.product_id)
+      @product = Product.where(:id => product.product_id).first
       @product.currquantity += product.iquantity
       @product.save
     end
@@ -18,17 +18,7 @@ class InflowsController < ApplicationController
       render :new
     end
   end
-  # def update_products
-  #   @products = Product.where("id = ?", params[:id])
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
-  
-  # def show
-  #   @product = Product.first
-  #   # @product = Product.find(params[:id])
-  # end
+
   private 
     def inflow_params
       params.require(:inflow).permit!

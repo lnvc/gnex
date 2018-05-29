@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2018_05_10_153208) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "cname"
-    t.string "caddress"
-    t.string "ccontactn"
-    t.string "ccontactp"
+    t.string "cname", limit: 100, null: false
+    t.string "caddress", limit: 100, null: false
+    t.string "ccontactn", limit: 13, null: false
+    t.string "ccontactp", limit: 70, null: false
     t.string "cpayment"
     t.string "cnotes"
     t.datetime "created_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_05_10_153208) do
   end
 
   create_table "inflows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "sreceipt"
+    t.binary "sreceipt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

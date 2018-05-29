@@ -17,9 +17,9 @@
     </div>
     <br>
     <%= f.label 'Order Receipt' %>
-    <%= f.number_field :receipt, required: true %><br>
+    <%= f.number_field :creceipt, required: true %><br>
     <%= f.label 'Customer Receipt' %>
-    <%= f.file_field :creceipt, multiple: true, accept:'image/*', required: true %>
+    <%= f.file_field :receipt, multiple: true, accept:'image/*', required: true %>
     <%= f.button :submit %>
     <%= link_to "Cancel", balances_index_path , class: "btn btn-danger" %>
 <% end %>
