@@ -22,8 +22,10 @@
 <% end %>
 
 
+<% if @print != nil %>
 <% @print.each do |receipt| %>
     <%= '*Incomplete order ' %>
     <%= receipt %>
     <%= ' can now be fulfilled.' %> <br>
+<% end %>
 <% end %>

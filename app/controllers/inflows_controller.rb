@@ -5,6 +5,7 @@ class InflowsController < ApplicationController
   def create
     @inflow = Inflow.new(inflow_params)
     
+    if @inflow.save
     # update each product's quantity
     @inflow_line = @inflow.inflow_product_quantities.all
     @inflow_line.each do |product| 
@@ -12,7 +13,6 @@ class InflowsController < ApplicationController
       @product.currquantity += product.iquantity
       @product.save
     end
-    if @inflow.save
       redirect_to balances_index_path, notice: "Inflow successfully added."
     else
       render :new

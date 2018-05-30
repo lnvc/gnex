@@ -5,6 +5,8 @@ class OutflowsController < ApplicationController
   def create
     @outflow = Outflow.new(outflow_params)
     
+    if @outflow.save
+      
     @outflow_line = @outflow.outflow_product_quantities.all
     @outflow_line.each do |product| 
       @product = Product.where(:id => product.product_id).first
@@ -12,7 +14,6 @@ class OutflowsController < ApplicationController
       @product.save
     end
     
-    if @outflow.save
       @order = Order.where(:receipt => @outflow.creceipt).first
       @order.status = FALSE
       @order.save
