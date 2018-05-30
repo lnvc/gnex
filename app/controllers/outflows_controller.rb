@@ -10,7 +10,7 @@ class OutflowsController < ApplicationController
     @outflow_line = @outflow.outflow_product_quantities.all
     @outflow_line.each do |product| 
       @product = Product.where(:id => product.product_id).first
-      @product.currquantity += product.iquantity
+      @product.currquantity -= product.oquantity
       @product.save
     end
     

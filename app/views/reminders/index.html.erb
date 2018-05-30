@@ -1,17 +1,17 @@
 <h1>Order Availability Reminder</h1>
 <div class="row container">
-   	<div class="col-md-2"><strong></string>Receipt</div></strong>
-   	<div class="col-md-2"><strong></string>Customer</div></strong>
-   	<div class="col-md-2"><strong></string>Product</div></strong>
-   	<div class="col-md-2"><strong></string>Quantity</div></strong>
+   	<div class="col-md-3"><strong></string>Receipt</div></strong>
+   	<div class="col-md-3"><strong></string>Customer</div></strong>
+   	<div class="col-md-3"><strong></string>Product</div></strong>
+   	<div class="col-md-3"><strong></string>Quantity</div></strong>
 </div>
 <% @orders.order('receipt').each do |order| %>
     <% if order.status == TRUE %>
         <% order.order_product_quantities.each do |line| %>
-            <div class="col-md-2"><%= order.receipt %></div>
-          <div class="col-md-2"><%= order.customer.cname %></div>
-          <div class="col-md-2"><%= line.product.pname %></div>
-          <div class="col-md-2"><%= line.oquantity %></div><br>
+            <div class="col-md-3"><%= order.receipt %></div>
+          <div class="col-md-3"><%= order.customer.cname %></div>
+          <div class="col-md-3"><%= line.product.pname %></div>
+          <div class="col-md-3"><%= line.oquantity %></div><br>
         <% end %>
     <% end %>
 <% end %>
